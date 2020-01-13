@@ -17,6 +17,7 @@ exports.up = function(knex) {
         tbl.string('name', 128).notNullable();
         tbl.string('notes', 255);
         tbl.integer('completed').notNullable().defaultTo(0);
+        
     })
 };
 
