@@ -4,8 +4,8 @@
   "description": "## Description",
   "main": "index.js",
   "scripts": {
-    "start":"node index.js",
-    "server":"nodemon index.js"
+    "start": "node index.js",
+    "server": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "knext": "^0.1.0",
+    "knex": "^0.20.7",
     "sqlite3": "^4.1.1"
   }
 }
