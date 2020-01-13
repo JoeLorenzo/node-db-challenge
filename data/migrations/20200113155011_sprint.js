@@ -17,7 +17,6 @@ exports.up = function(knex) {
         tbl.string('task_name', 128).notNullable();
         tbl.string('task_notes', 255);
         tbl.integer('completed').notNullable().defaultTo(0);
-
     })
 };
 
