@@ -27,12 +27,14 @@ exports.seed = function(knex) {
     .then(() => {
       // task entries seeds
     return knex('tasks').insert([
-      {id: 1, task_name: 'Preprocessors', task_notes: 'A CSS preprocessor'},
-      {id: 2, task_name: 'NPM', task_notes: 'A package bundler'},
-      {id: 3, task_name: 'React', task_notes: 'A frontend framework'},
-      {id: 4, task_name: 'UI library', task_notes: 'A UI library'},
-      {id: 5, task_name: 'Node', task_notes: 'A javascript runtime'},
-      {id: 6, task_name: 'Express', task_notes: 'A server library'}
+      {id: 1, project_id:2, task_name: 'Dependencies', task_notes: 'npm install react, react-router-dom, and a ui library of your choice.'},
+      {id: 2, project_id:2, task_name: 'Wireframe', task_notes: 'create a wireframe using figma or other ui scheme software.'},
+      {id: 3, project_id:2, task_name: 'Github Setup', task_notes: 'settup git branches and permissions.'},
+      {id: 4, project_id:2, task_name: 'Trello', task_notes: 'setup a trello board'},
+      {id: 5, project_id:2, task_name: 'CRA', task_notes: 'create-react-app and structure directories.'},
+      {id: 6, project_id:2, task_name: 'Pull Request', task_notes: 'create your first pull request.'},
+      {id: 7, project_id:3, task_name: 'Express', task_notes: 'A server library.'},
+      {id: 8, project_id:1, task_name: 'Wireframe', task_notes: 'create a wireframe using figma or other ui scheme software.'}
       ]);
     });
 }

@@ -15,8 +15,15 @@ exports.up = function(knex) {
     .createTable('tasks', tbl => {
         tbl.increments();
         tbl.string('task_name', 128).notNullable();
-        tbl.string('task_notes', 255);
+        tbl.text('task_notes');
         tbl.integer('completed').notNullable().defaultTo(0);
+        tbl.integer('project_id')
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('projects')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
     })
 };
 
