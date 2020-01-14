@@ -5,7 +5,7 @@ function get() {
 }
 
 function getById(id) {
-  return db('projects').where('id', id).first();
+  return db('projects').where({id}).first();
 }
 
 module.exports = {
