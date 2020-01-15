@@ -16,12 +16,12 @@ exports.seed = function(knex) {
     .then(() => {
         // resource seed entries
       return knex('resources').insert([
-        {id: 1, resource_description: 'Preprocessors', resource_name: 'A CSS preprocessor'},
-        {id: 2, resource_description: 'NPM', resource_name: 'A package bundler'},
-        {id: 3, resource_description: 'React', resource_name: 'A frontend framework'},
-        {id: 4, resource_description: 'UI library', resource_name: 'A UI library'},
-        {id: 5, resource_description: 'Node', resource_name: 'A javascript runtime'},
-        {id: 6, resource_description: 'Express', resource_name: 'A server library'}
+        {id: 1, resource_name : 'Preprocessors', resource_description: 'A CSS preprocessor'},
+        {id: 2, resource_name : 'NPM', resource_description: 'A package bundler'},
+        {id: 3, resource_name : 'React', resource_description: 'A frontend framework'},
+        {id: 4, resource_name : 'UI library', resource_description: 'A UI library'},
+        {id: 5, resource_name : 'Node', resource_description: 'A javascript runtime'},
+        {id: 6, resource_name : 'Express', resource_description: 'A server library'}
       ]);
     })
     .then(() => {

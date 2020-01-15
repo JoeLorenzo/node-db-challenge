@@ -3,10 +3,31 @@ const router = require('express').Router();
 const projects = require('./projectsModels')
 router.use(express.json())
 
+
+const parseToInteger = (completed) => {
+    if (!completed || completed == "false") {
+        return {completed:0}
+      }
+    else {
+        return {completed:1}
+      }
+}
+const parseToBolean = (completed) => {
+    if (completed === 0){
+        return completed = 'false'
+    }
+    else {
+        return completed = 'true'
+    }
+}
+
 // This route gets all projects
 router.get("/projects", (req, res) => {
     projects.get()
     .then(projects => {
+        projects.forEach(project => { 
+            project.completed = parseToBolean(project.completed)
+        })
         res.status(200).json(projects)
     })
     .catch(err => {
@@ -17,10 +38,12 @@ router.get("/projects", (req, res) => {
 
 // This route post's a new project
 router.post("/projects", (req, res) => {
-    const { project_name, description_name } = req.body
+    const { project_name, project_description, completed } = req.body
+    const newProject = {...parseToInteger(completed), project_name, project_description}
     if (project_name){
-        projects.insert(req.body)
+        projects.insert(newProject)
         .then(project => { 
+            project.completed = parseToBolean(project.completed)
             res.status(201).json(project)
         })
         .catch(err => {
@@ -43,6 +66,7 @@ router.get("/project/:projectId", (req, res) => {
         projects.getById(projectId)
         .then(project => {
             if (project) {
+                project.completed = parseToBolean(project.completed)
                 res.status(200).json(project)
             }
             else {
